@@ -19,7 +19,12 @@ from aiogram.fsm.storage.memory import MemoryStorage
 # ==========================================================
 # ВСТАВЬ СЮДА ТОКЕН ОТ @BotFather
 # ==========================================================
-TOKEN = "8615286189:AAGxCbav0Yw8Q6C4ZoWVgcgg56yeyRDayNI"
+
+import os
+
+TOKEN = os.getenv("BOT_TOKEN")
+if not TOKEN:
+    raise ValueError("Ошибка: BOT_TOKEN не найден в переменных окружения!")
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(name)s | %(message)s")
 logger = logging.getLogger("school_schedule_bot")
